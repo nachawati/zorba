@@ -8,19 +8,6 @@ jobs:
     - run: |
         mkdir build
         cd build
-        
-        echo $(pwd)
-        ls
-        cd ..
-        
-        echo $(pwd)
-        ls
-        cd ..
-        
-        echo $(pwd)
-        ls
-        cd ..
-        
         cmake -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_CXX_EXTENSIONS=OFF \
               -DCMAKE_CXX_FLAGS='-DU_USING_ICU_NAMESPACE=1' \
@@ -35,7 +22,7 @@ jobs:
               -DZORBA_SUPPRESS_RUBY=ON \
               -DZORBA_WITH_BIG_INTEGER=ON \
               -DZORBA_XQUERYX:BOOL=ON \
-              ..
+              $(pwd)/..
         make -j2
         make install
     - uses: actions/upload-artifact@v1
