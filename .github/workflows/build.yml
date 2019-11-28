@@ -22,7 +22,7 @@ jobs:
               -DZORBA_SUPPRESS_RUBY=ON \
               -DZORBA_WITH_BIG_INTEGER=ON \
               -DZORBA_XQUERYX:BOOL=ON \
-              $(pwd)/..
+              -S $(pwd)/..
         make -j2
         make install
     - uses: actions/upload-artifact@v1
