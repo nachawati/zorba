@@ -53,7 +53,7 @@ typedef enum { preserve_cons, strip_cons } construction_mode_t;
 
 /** \brief The XQuery version, taken from the version declaration, an XQuery 3.0 feature.
  */
-typedef enum { xquery_version_1_0 = 100, xquery_version_3_0 = 300 } xquery_version_t;
+typedef enum { xquery_version_undefined = 0, xquery_version_1_0 = 100, xquery_version_3_0 = 300 } xquery_version_t;
 
 /** \brief The JSONiq version */
 typedef enum { jsoniq_version_undefined = 0, jsoniq_version_1_0 = 100 } jsoniq_version_t;

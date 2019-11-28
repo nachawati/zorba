@@ -313,6 +313,46 @@ bool StaticContext::setXPath1_0CompatibMode (ZorbaConstants::XPath1_0CompatibleM
     return theStaticContext->setXPath1_0CompatibMode(lMode);
   }
 
+void StaticContext::setXQueryVersion(ZorbaConstants::XQueryVersion aMode)
+  {
+    zorba::xquery_version_t lMode = zorba::xquery_version_undefined;
+    if (aMode == ZorbaConstants::XQUERY_VERSION_1_0) {
+      lMode = zorba::xquery_version_1_0;
+    } else if (aMode == ZorbaConstants::XQUERY_VERSION_3_0) {
+      lMode = zorba::xquery_version_3_0;
+    }
+    theStaticContext->setXQueryVersion(lMode);
+  }
+
+void StaticContext::setJSONiqVersion(ZorbaConstants::JSONiqVersion aMode)
+  {
+    zorba::jsoniq_version_t lMode = zorba::jsoniq_version_undefined;
+    if (aMode == ZorbaConstants::JSONIQ_VERSION_1_0) {
+      lMode = zorba::jsoniq_version_1_0;
+    }
+    theStaticContext->setJSONiqVersion(lMode);
+  }
+
+ZorbaConstants::XQueryVersion StaticContext::getXQueryVersion() const
+  {
+    zorba::xquery_version_t lMode = theStaticContext->getXQueryVersion();
+    if (lMode == zorba::xquery_version_1_0) {
+      return ZorbaConstants::XQUERY_VERSION_1_0;
+    } else if (lMode == zorba::xquery_version_3_0) {
+      return ZorbaConstants::XQUERY_VERSION_3_0;
+    }
+    return ZorbaConstants::XQUERY_VERSION_UNDEFINED;
+  }
+
+ZorbaConstants::JSONiqVersion StaticContext::getJSONiqVersion() const
+  {
+    zorba::jsoniq_version_t lMode = theStaticContext->getJSONiqVersion();
+    if (lMode == zorba::jsoniq_version_1_0) {
+      return ZorbaConstants::JSONIQ_VERSION_1_0;
+    }
+    return ZorbaConstants::JSONIQ_VERSION_UNDEFINED;
+  }
+
 void StaticContext::destroy() 
   { theStaticContext = 0; }
    
@@ -355,8 +395,13 @@ void StaticContext::destroy()
 %rename(STRIP_CONS) strip_cons;
 
 %rename(XQueryVersionEnum) zorba::xquery_version_t;
+%rename(XQUERY_VERSION_UNDEFINED) xquery_version_undefined;
 %rename(XQUERY_VERSION_1_0) xquery_version_1_0;
 %rename(XQUERY_VERSION_3_0) xquery_version_3_0;
+
+%rename(JSONiqVersionEnum) zorba::jsoniq_version_t;
+%rename(JSONIQ_VERSION_UNDEFINED) jsoniq_version_undefined;
+%rename(JSONIQ_VERSION_1_0) jsoniq_version_1_0;
 
 %rename(ValidationModeEnum) zorba::validation_mode_t;
 %rename(VALIDATE_SKIP) validate_skip;

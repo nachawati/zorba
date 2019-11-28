@@ -112,6 +112,7 @@ namespace std {
 
 
 namespace std {
+%template(ItemPairVector) std::vector< pair<Item, Item> >;
 %template(ItemVector) std::vector<Item>;
 %template(ItemPair) std::pair<Item, Item>;
 }

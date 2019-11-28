@@ -62,6 +62,17 @@ public:
     XPATH1_0
   } XPath1_0CompatibleMode;
 
+  typedef enum {
+    XQUERY_VERSION_UNDEFINED = 0,
+	XQUERY_VERSION_1_0 = 100,
+	XQUERY_VERSION_3_0 = 300
+  } XQueryVersion;
+
+  typedef enum {
+    JSONIQ_VERSION_UNDEFINED = 0,
+    JSONIQ_VERSION_1_0 = 100
+  } JSONiqVersion;
+
 }; // ZorbaConstants
 
   /** \brief Instances of the class StaticContext contain the information that is available
@@ -432,6 +443,36 @@ public:
    * @throw ZorbaException if an error occured.
    */
   bool setDefaultFunctionNamespace (const std::string &aURI);
+
+
+  /** \brief Set the XQuery processing mode (version 1.0 or 3.0).
+   *
+   * @param aMode the XQuery version.
+   * @return true if the version was set, false otherwise.
+   */
+  void setXQueryVersion(ZorbaConstants::XQueryVersion aMode);
+
+  /** \brief Set the JSONiq processing mode
+   *
+   *
+   * @param aMode the JSONiq version
+   * @return true if the version was set, false otherwise.
+   */
+  void setJSONiqVersion(ZorbaConstants::JSONiqVersion aMode);
+
+  /** \brief Get the XQuery processing mode (version 1.0 or 3.0).
+   *
+   *
+   * @return xquery_version_t the XQuery version processing mode.
+   */
+  ZorbaConstants::XQueryVersion getXQueryVersion() const;
+
+  /** \brief Get the JSONiq processing mode.
+   *
+   *
+   * @return jsoniq_version_t the JSONiq version processing mode.
+   */
+  ZorbaConstants::JSONiqVersion getJSONiqVersion() const;
 
   /** \brief Destroy this object from memory
    */
