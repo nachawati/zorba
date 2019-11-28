@@ -11,7 +11,7 @@ jobs:
       with:
         java-version: 11
     - run: |
-        brew install curl-openssl icu4c libiconv libxslt swig xerces-c
+        brew install bison curl-openssl flex libiconv libxslt swig xerces-c
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_EXTENSIONS=OFF -DCMAKE_CXX_FLAGS='-DU_USING_ICU_NAMESPACE=1' -DCMAKE_CXX_STANDARD=14 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_INSTALL_RPATH=$ORIGIN/ -DZORBA_FOR_ONE_THREAD_ONLY=OFF -DZORBA_SUPPRESS_CSHARP=ON -DZORBA_SUPPRESS_PHP=ON -DZORBA_SUPPRESS_PYTHON=ON -DZORBA_SUPPRESS_RUBY=ON -DZORBA_WITH_BIG_INTEGER=ON -DZORBA_XQUERYX:BOOL=ON -DCMAKE_PREFIX_PATH="/usr/local/opt/libxslt;/usr/local/opt/curl-openssl;/usr/local/opt/libxml2;/usr/local/opt/icu4c" ..
