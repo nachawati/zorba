@@ -5,7 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-java@v1
+      with:
+        java-version: 11
     - run: |
+        sudo rm -r /usr/include/c++/8/tr1
         sudo apt-get install -yqq libcurl4-openssl-dev libxerces-c-dev libxslt-dev swig uuid-dev
         mkdir build
         cd build
