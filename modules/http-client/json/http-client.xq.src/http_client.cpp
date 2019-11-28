@@ -35,6 +35,8 @@
 #include "http_response_handler.h"
 #include "http_response_parser.h"
 
+#include <algorithm>
+
 namespace zorba {
 
 namespace http_client {
