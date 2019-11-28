@@ -6,7 +6,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: |
-        sudo apt-get install -yqq libcurl4-openssl-dev libxslt-dev swig uuid-dev xerces-c-dev
+        sudo apt-get install -yqq libcurl4-openssl-dev libxerces-c-dev libxslt-dev swig uuid-dev
         mkdir build
         cd build
         cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_EXTENSIONS=OFF -DCMAKE_CXX_FLAGS='-DU_USING_ICU_NAMESPACE=1' -DCMAKE_CXX_STANDARD=14 -DCMAKE_CXX_STANDARD_REQUIRED=ON -DCMAKE_INSTALL_PREFIX=$(pwd)/install -DCMAKE_INSTALL_RPATH=$ORIGIN/ -DZORBA_FOR_ONE_THREAD_ONLY=OFF -DZORBA_SUPPRESS_CSHARP=ON -DZORBA_SUPPRESS_PHP=ON -DZORBA_SUPPRESS_PYTHON=ON -DZORBA_SUPPRESS_RUBY=ON -DZORBA_WITH_BIG_INTEGER=ON -DZORBA_XQUERYX:BOOL=ON ..
