@@ -8,9 +8,19 @@ jobs:
     - run: |
         mkdir build
         cd build
+        
         echo $(pwd)
-        ls ..
-        ls ../..
+        ls
+        cd ..
+        
+        echo $(pwd)
+        ls
+        cd ..
+        
+        echo $(pwd)
+        ls
+        cd ..
+        
         cmake -DCMAKE_BUILD_TYPE=Release \
               -DCMAKE_CXX_EXTENSIONS=OFF \
               -DCMAKE_CXX_FLAGS='-DU_USING_ICU_NAMESPACE=1' \
